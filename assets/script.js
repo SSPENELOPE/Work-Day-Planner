@@ -17,4 +17,8 @@ function loadTextArea() {
     }
 };
 
+$saveBtn.on('click', function(){
+    saveTextArea();
+});
+
 loadTextArea();
