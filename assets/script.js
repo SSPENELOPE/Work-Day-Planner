@@ -1,24 +1,23 @@
 /*     Variables     */
-var $saveBtn = $('saveBtn');
-var $textArea = $('text-area');
+var saveBtn = $('#saveBtn1');
+var textArea = $('#text-area1').val();
 
 
 /*    Functions    */
 
-// Save text area function
-function saveTextArea() {
-    localStorage.setItem('textArea', JSON.stringify($textArea));
-}
-
-function loadTextArea() {
-    var $savedText = JSON.parse(localStorage.getItem('$textArea'));
-    if ($savedText !== null) {
-        $textArea = $savedText;
-    }
+// Timer update function
+var update = function () {
+    var currentTime = moment();
+    $('#currentDay').text(currentTime.format('MMM Do, YYYY, HH:mm:ss'));
 };
 
-$saveBtn.on('click', function(){
-    saveTextArea();
+
+/*     Click Events     */
+saveBtn.click(function() {
+    localStorage.setItem('userText', JSON.stringify(textArea));
+    console.log('userText');
 });
 
-loadTextArea();
+
+
+setInterval(update, 1000);
