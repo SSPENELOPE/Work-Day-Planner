@@ -1,6 +1,6 @@
 /*     Variables     */
-var saveBtn = $('#saveBtn1');
-var textArea = $('#text-area1').val();
+var saveBtn9am = $('#saveBtn-9am');
+var textArea9am = $('#textarea-9am').val();
 
 
 /*    Functions    */
@@ -13,8 +13,8 @@ var update = function () {
 
 
 /*     Click Events     */
-saveBtn.click(function() {
-    localStorage.setItem('userText', JSON.stringify(textArea));
+saveBtn9am.on('click', function() {
+    localStorage.setItem('userText', JSON.stringify(textArea9am));
     console.log('userText');
 });
 
