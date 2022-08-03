@@ -32,7 +32,6 @@ var update = function () {
 
 // Load Textarea's function
 function loadTextAreas() {
-
     // Get Textarea from storage
     var stored9am = JSON.parse(localStorage.getItem('textNine'));
     var stored10am = JSON.parse(localStorage.getItem('textTen'));
@@ -43,7 +42,6 @@ function loadTextAreas() {
     var stored3pm = JSON.parse(localStorage.getItem('textThree'));
     var stored4pm = JSON.parse(localStorage.getItem('textFour'));
     var stored5pm = JSON.parse(localStorage.getItem('textFive'));
-
     // Display Textarea on page
     textArea9am.val(stored9am);
     textArea10am.val(stored10am);
@@ -56,67 +54,155 @@ function loadTextAreas() {
     textArea5pm.val(stored5pm);
 };
 
+
+// Function to update the bg-colors based on time of day
 function timeCheck() {
-   var hour = new Date().getHours();
-   if (9 >= hour&&hour <= 10) {
-    textArea9am.addClass('present')
-   } else {
-    textArea9am.addClass('past')
-   };
+    var hour = new Date().getHours();
+
+    // 9am
+    if (9 >= hour && hour < 10) {
+        textArea9am.addClass('present');
+    } else if (hour >= 10) {
+        textArea9am.addClass('past');
+    };
+    if (hour < 9) {
+        textArea9am.addClass('future')
+    };
+
+    // 10am
+    if (10 >= hour && hour < 11) {
+        textArea10am.addClass('present');
+    } else if (hour >= 11) {
+        textArea10am.addClass('past');
+    };
+    if (hour < 10) {
+        textArea10am.addClass('future');
+    };
+
+    // 11am
+    if (11 >= hour && hour < 12) {
+        textArea11am.addClass('present');
+    } else if (hour >= 12) {
+        textArea11am.addClass('past');
+    }
+    if (hour < 11) {
+        textArea11am.addClass('future');
+    };
+
+    // 12am
+    if (12 >= hour && hour < 13) {
+        textArea12am.addClass('present');
+    } else if (hour >= 13) {
+        textArea12am.addClass('past');
+    };
+    if (hour < 13) {
+        textArea12am.addClass('future');
+    };
+
+    // 1pm
+    if (13 >= hour && hour < 14) {
+        textArea1pm.addClass('present');
+    } else if (hour >= 14) {
+        textArea1pm.addClass('past');
+    };
+    if (hour < 14) {
+        textArea1pm.addClass('future');
+    };
+
+
+    // 2pm
+    if (14 >= hour && hour < 15) {
+        textArea2pm.addClass('present');
+    } else if (hour >= 15) {
+        textArea2pm.addClass('past');
+    };
+    if (hour < 14) {
+        textArea1pm.addClass('future');
+    };
+
+    // 3pm
+    if (15 >= hour && hour < 16) {
+        textArea3pm.addClass('present');
+    } else if (hour >= 16) {
+        textArea3pm.addClass('past');
+    };
+    if (hour < 16) {
+        textArea3pm.addClass('future');
+    };
+
+    // 4pm
+    if (16 >= hour && hour < 17) {
+        textArea4pm.addClass('present');
+    } else if (hour >= 17) {
+        textArea4pm.addClass('past');
+    };
+    if (hour < 17) {
+        textArea4pm.addClass('future');
+    };
+
+    // 5pm
+    if (17 >= hour && hour < 18) {
+        textArea5pm.addClass('present');
+    } else if (hour >= 18) {
+        textArea5pm.addClass('past');
+    };
+    if (hour < 18) {
+        textArea5pm.addClass('future');
+    };
 };
 
 
 
 /*     Click Events     */
-saveBtn9am.on('click', function() {
+saveBtn9am.on('click', function () {
     var textNine = textArea9am.val();
     localStorage.setItem('textNine', JSON.stringify(textNine));
     console.log(textNine);
 });
 
-saveBtn10am.on('click', function() {
+saveBtn10am.on('click', function () {
     var textTen = textArea10am.val();
     localStorage.setItem('textTen', JSON.stringify(textTen));
     console.log(textTen);
 });
 
-saveBtn11am.on('click', function() {
+saveBtn11am.on('click', function () {
     var textEleven = textArea11am.val();
     localStorage.setItem('textEleven', JSON.stringify(textEleven));
     console.log(textEleven);
 });
 
-saveBtn12am.on('click', function() {
+saveBtn12am.on('click', function () {
     var textTwelve = textArea12am.val();
     localStorage.setItem('textTwelve', JSON.stringify(textTwelve));
     console.log(textTwelve);
 });
 
-saveBtn1pm.on('click', function() {
+saveBtn1pm.on('click', function () {
     var textOne = textArea1pm.val();
     localStorage.setItem('textOne', JSON.stringify(textOne));
     console.log(textOne);
 });
 
-saveBtn2pm.on('click', function() {
+saveBtn2pm.on('click', function () {
     var textTwo = textArea2pm.val();
     localStorage.setItem('textTwo', JSON.stringify(textTwo));
     console.log(textTwo);
 });
 
-saveBtn3pm.on('click', function() {
+saveBtn3pm.on('click', function () {
     var textThree = textArea3pm.val();
     localStorage.setItem('textThree', JSON.stringify(textThree));
     console.log(textThree);
 });
 
-saveBtn4pm.on('click', function() {
+saveBtn4pm.on('click', function () {
     var textFour = textArea4pm.val();
     localStorage.setItem('textFour', JSON.stringify(textFour));
     console.log(textFour);
 });
 
-saveBtn5pm.on('click', function() {
+saveBtn5pm.on('click', function () {
     var textFive = textArea5pm.val();
     localStorage.setItem('textFive', JSON.stringify(textFive));
     console.log(textFive);
@@ -133,4 +219,3 @@ loadTextAreas();
 setInterval(update, 1000);
 
 
-   
