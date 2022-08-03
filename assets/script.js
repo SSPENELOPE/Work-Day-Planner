@@ -1,28 +1,32 @@
 /*     Variables     */
 var saveBtn9am = $('#saveBtn-9am');
 var textArea9am = $('#textarea-9am');
-
+var currentTime = moment().format('MMM Do, YYYY, HH:mm:ss');
 
 /*    Functions    */
 
 // Timer update function
 var update = function () {
-    var currentTime = moment();
-    $('#currentDay').text(currentTime.format('MMM Do, YYYY, HH:mm:ss'));
+    $('#currentDay').text(currentTime);
 };
 
 // Load Textarea's function
 function loadTextAreas() {
-    // Example from jQuery docs
-    //textArea9am = JSON.parse(localStorage.getItem('text'));
     
-    // Original version not working
+    // Not working, currently troubleshooting 
     var stored9am = JSON.parse(localStorage.getItem('text'));
     if (stored9am !== null) {
-        $('#textArea9am') = stored9am;
+       textArea9am = stored9am;
     };
 };
 
+function backgroundColorUpdate() {
+    if (currentTime < 10) {
+        textArea9am.addClass('present');
+    } else {
+        textArea9am.addClass('past')
+    };
+};
 
 /*     Click Events     */
 saveBtn9am.on('click', function() {
@@ -33,7 +37,7 @@ saveBtn9am.on('click', function() {
 
 
 
-
+backgroundColorUpdate();
 loadTextAreas();
 setInterval(update, 1000);
 
