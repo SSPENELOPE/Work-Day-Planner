@@ -1,4 +1,6 @@
 /*           Variables          */
+var clearBtn = $('#clear');
+
 // Save button variables
 var saveBtn9am = $('#saveBtn-9am');
 var saveBtn10am = $('#saveBtn-10am');
@@ -157,8 +159,8 @@ function refreshPage() {
     futureTime.setTime(futureTime.getTime() + 3600000);
     futureTime.setMinutes(0);
     futureTime.setMinutes(0);
-    var refreshTime = (future.getTime() - currentTime.getTime());
-    setRefreshTime(function() {
+    var refreshTime = (futureTime.getTime() - currentTime.getTime());
+    setTimeout(function() {
         window.location.reload(true);
     }, refreshTime)
 };
@@ -224,6 +226,10 @@ saveBtn4pm.on('click', function () {
 saveBtn5pm.on('click', function () {
     var textFive = textArea5pm.val();
     localStorage.setItem('textFive', JSON.stringify(textFive));
+});
+
+clearBtn.on('click', function(){
+    clearStorage();
 });
 
 
