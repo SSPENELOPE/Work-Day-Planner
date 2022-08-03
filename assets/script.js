@@ -32,6 +32,7 @@ var update = function () {
 
 // Load Textarea's function
 function loadTextAreas() {
+
     // Get Textarea from storage
     var stored9am = JSON.parse(localStorage.getItem('textNine'));
 
@@ -45,7 +46,7 @@ function timeCheck() {
     textArea9am.addClass('present')
    } else {
     textArea9am.addClass('past')
-   }
+   };
 };
 
 
@@ -57,7 +58,9 @@ saveBtn9am.on('click', function() {
     console.log(textNine);
 });
 
+$('button').each(function() {
 
+});
 timeCheck();
 loadTextAreas();
 setInterval(update, 1000);
