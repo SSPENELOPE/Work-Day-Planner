@@ -95,7 +95,7 @@ function timeCheck() {
     } else if (hour >= 13) {
         textArea12am.addClass('past');
     };
-    if (hour < 13) {
+    if (hour < 12) {
         textArea12am.addClass('future');
     };
 
@@ -105,10 +105,9 @@ function timeCheck() {
     } else if (hour >= 14) {
         textArea1pm.addClass('past');
     };
-    if (hour < 14) {
+    if (hour < 13) {
         textArea1pm.addClass('future');
     };
-
 
     // 2pm
     if (14 >= hour && hour < 15) {
@@ -149,6 +148,37 @@ function timeCheck() {
     if (hour < 17) {
         textArea5pm.addClass('future');
     };
+};
+
+function refreshPage() {
+    var refreshHour = new Date().getHours();
+    if (refreshHour == 9) {
+        location.reload();
+    };
+    if (refreshHour == 10){
+        location.reload();
+    };
+    if (refreshHour == 11){
+        location.reload();
+    };
+    if (refreshHour == 12){
+        location.reload();
+    };
+    if (refreshHour == 13){
+        location.reload();
+    };
+    if (refreshHour == 14){
+        location.reload();
+    };
+    if (refreshHour == 15){
+        location.reload();
+    };
+    if (refreshHour == 17){
+        location.reload();
+    };
+    if (refreshHour == 18){
+        location.reload();
+    };  
 };
 
 
@@ -208,5 +238,5 @@ saveBtn5pm.on('click', function () {
 timeCheck();
 loadTextAreas();
 setInterval(update, 1000);
-
+//refreshPage();
 
