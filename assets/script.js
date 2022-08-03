@@ -61,6 +61,7 @@ saveBtn9am.on('click', function() {
 $('button').each(function() {
 
 });
+
 timeCheck();
 loadTextAreas();
 setInterval(update, 1000);
