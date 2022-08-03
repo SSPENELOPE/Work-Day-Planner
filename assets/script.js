@@ -1,6 +1,6 @@
 /*     Variables     */
 var saveBtn9am = $('#saveBtn-9am');
-var textArea9am = $('#textarea-9am').val();
+var textArea9am = $('#textarea-9am');
 
 
 /*    Functions    */
@@ -12,12 +12,21 @@ var update = function () {
 };
 
 
+
 /*     Click Events     */
 saveBtn9am.on('click', function() {
-    localStorage.setItem('userText', JSON.stringify(textArea9am));
-    console.log('userText');
+    var text = textArea9am.val();
+    localStorage.setItem('text9am', JSON.stringify(text));
+    console.log(text);
 });
 
+function loadTextAreas() {
+    var stored9am = JSON.parse(localStorage.getItem('text'));
+    if (stored9am !== null) {
+        textArea9am.val() = stored9am;
+    };
+};
 
 
+loadTextAreas();
 setInterval(update, 1000);
