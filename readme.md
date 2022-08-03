@@ -9,7 +9,7 @@
 - No installation required, you can use the page in your web browser.
 
 # Usage
-- Add whatever you have planned for your day in the according time area and click the save button. If you refresh the page, no worries it is saved to the local storage. If you close the page however, your saved items will no longer be their as we are only saving to the local storage.
+- Add whatever you have planned for your day in the according time area and click the save button. If you refresh the page, no worries it is saved to the local storage. 
 
 - The time areas are color coated. "Red" is the current time of the day, "gray" is past times, and "green" is future times. The colors will change automaticly depending on what time of the day it is. The  current time of day is displayed and actively counting on the header of the page.
 
