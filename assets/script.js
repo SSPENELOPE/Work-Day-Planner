@@ -157,55 +157,46 @@ function timeCheck() {
 saveBtn9am.on('click', function () {
     var textNine = textArea9am.val();
     localStorage.setItem('textNine', JSON.stringify(textNine));
-    console.log(textNine);
 });
 
 saveBtn10am.on('click', function () {
     var textTen = textArea10am.val();
     localStorage.setItem('textTen', JSON.stringify(textTen));
-    console.log(textTen);
 });
 
 saveBtn11am.on('click', function () {
     var textEleven = textArea11am.val();
     localStorage.setItem('textEleven', JSON.stringify(textEleven));
-    console.log(textEleven);
 });
 
 saveBtn12am.on('click', function () {
     var textTwelve = textArea12am.val();
     localStorage.setItem('textTwelve', JSON.stringify(textTwelve));
-    console.log(textTwelve);
 });
 
 saveBtn1pm.on('click', function () {
     var textOne = textArea1pm.val();
     localStorage.setItem('textOne', JSON.stringify(textOne));
-    console.log(textOne);
 });
 
 saveBtn2pm.on('click', function () {
     var textTwo = textArea2pm.val();
     localStorage.setItem('textTwo', JSON.stringify(textTwo));
-    console.log(textTwo);
 });
 
 saveBtn3pm.on('click', function () {
     var textThree = textArea3pm.val();
     localStorage.setItem('textThree', JSON.stringify(textThree));
-    console.log(textThree);
 });
 
 saveBtn4pm.on('click', function () {
     var textFour = textArea4pm.val();
     localStorage.setItem('textFour', JSON.stringify(textFour));
-    console.log(textFour);
 });
 
 saveBtn5pm.on('click', function () {
     var textFive = textArea5pm.val();
     localStorage.setItem('textFive', JSON.stringify(textFive));
-    console.log(textFive);
 });
 
 
