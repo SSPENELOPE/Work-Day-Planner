@@ -13,9 +13,13 @@ var update = function () {
 
 // Load Textarea's function
 function loadTextAreas() {
+    // Example from jQuery docs
+    //textArea9am = JSON.parse(localStorage.getItem('text'));
+    
+    // Original version not working
     var stored9am = JSON.parse(localStorage.getItem('text'));
     if (stored9am !== null) {
-        textArea9am.val() = stored9am;
+        $('#textArea9am') = stored9am;
     };
 };
 
@@ -23,7 +27,7 @@ function loadTextAreas() {
 /*     Click Events     */
 saveBtn9am.on('click', function() {
     var text = textArea9am.val();
-    localStorage.setItem('text9am', JSON.stringify(text));
+    localStorage.setItem('text', JSON.stringify(text));
     console.log(text);
 });
 
@@ -32,3 +36,6 @@ saveBtn9am.on('click', function() {
 
 loadTextAreas();
 setInterval(update, 1000);
+
+
+   
