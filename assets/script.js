@@ -126,7 +126,7 @@ function timeCheck() {
     } else if (hour >= 16) {
         textArea3pm.addClass('past');
     };
-    if (hour < 16) {
+    if (hour < 15) {
         textArea3pm.addClass('future');
     };
 
@@ -136,7 +136,7 @@ function timeCheck() {
     } else if (hour >= 17) {
         textArea4pm.addClass('past');
     };
-    if (hour < 17) {
+    if (hour < 16) {
         textArea4pm.addClass('future');
     };
 
@@ -146,7 +146,7 @@ function timeCheck() {
     } else if (hour >= 18) {
         textArea5pm.addClass('past');
     };
-    if (hour < 18) {
+    if (hour < 17) {
         textArea5pm.addClass('future');
     };
 };
