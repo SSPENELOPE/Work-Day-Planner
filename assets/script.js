@@ -163,6 +163,19 @@ function refreshPage() {
     }, refreshTime)
 };
 
+function clearStorage() {
+    localStorage.clear();
+    textArea9am.val('');
+    textArea10am.val('');
+    textArea11am.val('');
+    textArea12am.val('');
+    textArea1pm.val('');
+    textArea2pm.val('');
+    textArea3pm.val('');
+    textArea4pm.val('');
+    textArea5pm.val('');
+}
+
 
 
 
