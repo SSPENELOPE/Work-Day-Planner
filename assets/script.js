@@ -11,6 +11,13 @@ var update = function () {
     $('#currentDay').text(currentTime.format('MMM Do, YYYY, HH:mm:ss'));
 };
 
+// Load Textarea's function
+function loadTextAreas() {
+    var stored9am = JSON.parse(localStorage.getItem('text'));
+    if (stored9am !== null) {
+        textArea9am.val() = stored9am;
+    };
+};
 
 
 /*     Click Events     */
@@ -20,12 +27,7 @@ saveBtn9am.on('click', function() {
     console.log(text);
 });
 
-function loadTextAreas() {
-    var stored9am = JSON.parse(localStorage.getItem('text'));
-    if (stored9am !== null) {
-        textArea9am.val() = stored9am;
-    };
-};
+
 
 
 loadTextAreas();
