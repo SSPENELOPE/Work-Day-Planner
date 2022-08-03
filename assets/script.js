@@ -150,36 +150,20 @@ function timeCheck() {
     };
 };
 
+// Refresh the page on the top of every hour for automatic bg change
 function refreshPage() {
-    var refreshHour = new Date().getHours();
-    if (refreshHour == 9) {
-        location.reload();
-    };
-    if (refreshHour == 10){
-        location.reload();
-    };
-    if (refreshHour == 11){
-        location.reload();
-    };
-    if (refreshHour == 12){
-        location.reload();
-    };
-    if (refreshHour == 13){
-        location.reload();
-    };
-    if (refreshHour == 14){
-        location.reload();
-    };
-    if (refreshHour == 15){
-        location.reload();
-    };
-    if (refreshHour == 17){
-        location.reload();
-    };
-    if (refreshHour == 18){
-        location.reload();
-    };  
+    var currentTime = new Date();
+    var futureTime = new Date();
+    futureTime.setTime(futureTime.getTime() + 3600000);
+    futureTime.setMinutes(0);
+    futureTime.setMinutes(0);
+    var refreshTime = (future.getTime() - currentTime.getTime());
+    setRefreshTime(function() {
+        window.location.reload(true);
+    }, refreshTime)
 };
+
+
 
 
 
@@ -238,5 +222,5 @@ saveBtn5pm.on('click', function () {
 timeCheck();
 loadTextAreas();
 setInterval(update, 1000);
-//refreshPage();
+refreshPage();
 
