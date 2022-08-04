@@ -22,13 +22,25 @@ var updateTime = function () {
     $('#currentDay').text(currentTime);
 };
 
+
+/*  Troublesome Area  */ 
 // Load Textarea's function
 function loadTextAreas() {
      storageArray = JSON.parse(localStorage.getItem('storedNotes'))
     for (var i = 0; i < userText.length; i++) {
-         userText[i].val() = storageArray[i];
+        userText.val() = storageArray[i];
     }
 };
+
+// Save button
+$('.saveBtn').click(function(){
+    // Save buttons For textarea's
+    for (var i = 0; i < userText.length; i++ ) {
+             var text = userText.val();
+            };
+         storageArray.push(text);
+         localStorage.setItem("storedNotes", JSON.stringify(storageArray));
+ });
 
 
 
@@ -94,7 +106,7 @@ function timeCheck() {
         textArea2pm.addClass('past');
     };
     if (hour < 14) {
-        textArea1pm.addClass('future');
+        textArea2pm.addClass('future');
     };
 
     // 3pm
@@ -159,15 +171,7 @@ function clearStorage() {
 
 /*     Click Events     */
 
-// Save button
-$('.saveBtn').click(function(){
-    // Save buttons For textarea's
-    for (var i = 0; i < userText.length; i++ ) {
-             var text = userText[i].val();
-             storageArray.push(text);
-         };
-         localStorage.setItem("storedNotes", JSON.stringify(storageArray));
- });
+
  
 // Clear Button
 clearBtn.on('click', function(){
