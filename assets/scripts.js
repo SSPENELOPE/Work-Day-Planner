@@ -1,16 +1,7 @@
 /*           Variables          */
 var clearBtn = $('#clear');
 
-// Save button variables
-var saveBtn9am = $('#saveBtn-9am');
-var saveBtn10am = $('#saveBtn-10am');
-var saveBtn11am = $('#saveBtn-11am');
-var saveBtn12am = $('#saveBtn-12am');
-var saveBtn1pm = $('#saveBtn-1pm');
-var saveBtn2pm = $('#saveBtn-2pm');
-var saveBtn3pm = $('#saveBtn-3pm');
-var saveBtn4pm = $('#saveBtn-4pm');
-var saveBtn5pm = $('#saveBtn-5pm');
+
 
 // Textarea variables
 var textArea9am = $('#textarea-9am');
@@ -22,7 +13,8 @@ var textArea2pm = $('#textarea-2pm');
 var textArea3pm = $('#textarea-3pm');
 var textArea4pm = $('#textarea-4pm');
 var textArea5pm = $('#textarea-5pm');
-
+var userText = [textArea9am, etc] 
+var storageArray = [];
 
 /*    Functions    */
 
@@ -34,27 +26,13 @@ var updateTime = function () {
 
 // Load Textarea's function
 function loadTextAreas() {
-    // Get Textarea from storage
-    var stored9am = JSON.parse(localStorage.getItem('textNine'));
-    var stored10am = JSON.parse(localStorage.getItem('textTen'));
-    var stored11am = JSON.parse(localStorage.getItem('textEleven'));
-    var stored12am = JSON.parse(localStorage.getItem('textTwelve'));
-    var stored1pm = JSON.parse(localStorage.getItem('textOne'));
-    var stored2pm = JSON.parse(localStorage.getItem('textTwo'));
-    var stored3pm = JSON.parse(localStorage.getItem('textThree'));
-    var stored4pm = JSON.parse(localStorage.getItem('textFour'));
-    var stored5pm = JSON.parse(localStorage.getItem('textFive'));
-    // Display Textarea on page
-    textArea9am.val(stored9am);
-    textArea10am.val(stored10am);
-    textArea11am.val(stored11am);
-    textArea12am.val(stored12am);
-    textArea1pm.val(stored1pm);
-    textArea2pm.val(stored2pm);
-    textArea3pm.val(stored3pm);
-    textArea4pm.val(stored4pm);
-    textArea5pm.val(stored5pm);
+     storageArray = JSON.parse(localStorage.getItem('storedNotes'))
+    for (var i = 0; i < userText.length; i++) {
+         userText[i].val() = storageArray[i];
+    }
 };
+
+
 
 
 // Function to update the bg-colors based on time of day
@@ -179,77 +157,25 @@ function clearStorage() {
 }
 
 
-var notesArray = [];
 
 
 /*     Click Events     */
-var myArray = [btns, etc] 
 
+// Save button
+$('.saveBtn').click(function(){
 
-function saveBtn() {
-    for (var i = 0; i < myArray.length; i++ ) {
-        var text = myArray[i].val();
-        notesArray.push(text);
-    }
-    localStorage.setItem("storedNotes", notesArray)
-
-}
-
-
-saveBtn9am.on('click', function () {
-    var textNine = textArea9am.val();
-    localStorage.setItem('textNine', JSON.stringify(textNine));
-});
-
-saveBtn10am.on('click', function () {
-    var textTen = textArea10am.val();
-    localStorage.setItem('textTen', JSON.stringify(textTen));
-});
-
-saveBtn11am.on('click', function () {
-    var textEleven = textArea11am.val();
-    localStorage.setItem('textEleven', JSON.stringify(textEleven));
-});
-
-saveBtn12am.on('click', function () {
-    var textTwelve = textArea12am.val();
-    localStorage.setItem('textTwelve', JSON.stringify(textTwelve));
-});
-
-saveBtn1pm.on('click', function () {
-    var textOne = textArea1pm.val();
-    localStorage.setItem('textOne', JSON.stringify(textOne));
-});
-
-saveBtn2pm.on('click', function () {
-    var textTwo = textArea2pm.val();
-    localStorage.setItem('textTwo', JSON.stringify(textTwo));
-});
-
-saveBtn3pm.on('click', function () {
-    var textThree = textArea3pm.val();
-    localStorage.setItem('textThree', JSON.stringify(textThree));
-});
-
-saveBtn4pm.on('click', function () {
-    var textFour = textArea4pm.val();
-    localStorage.setItem('textFour', JSON.stringify(textFour));
-});
-
-saveBtn5pm.on('click', function () {
-    var textFive = textArea5pm.val();
-    localStorage.setItem('textFive', JSON.stringify(textFive));
-});
-
+    for (var i = 0; i < userText.length; i++ ) {
+             var text = userText[i].val();
+             storageArray.push(text);
+         };
+         localStorage.setItem("storedNotes", JSON.stringify(storageArray));
+ });
+ 
+// Clear Button
 clearBtn.on('click', function(){
     clearStorage();
 });
 
-
-// Function for all buttons (wip)
-/*$('button').each(function() {
-
-});*/
 
 timeCheck();
 loadTextAreas();
