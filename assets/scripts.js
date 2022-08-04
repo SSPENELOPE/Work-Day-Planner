@@ -11,7 +11,7 @@ var textArea2pm = $('#textarea-2pm');
 var textArea3pm = $('#textarea-3pm');
 var textArea4pm = $('#textarea-4pm');
 var textArea5pm = $('#textarea-5pm');
-var userText = [textArea9am.val(), textArea10am.val(), textArea11am.val(), textArea12am.val(), textArea1pm.val(), textArea2pm.val(), textArea3pm.val(), textArea4pm.val(), textArea5pm.val()]
+var userText = [textArea9am, textArea10am, textArea11am, textArea12am, textArea1pm, textArea2pm, textArea3pm, textArea4pm, textArea5pm]
 var storageArray = [];
 
 
@@ -26,19 +26,26 @@ var updateTime = function () {
 /*  Troublesome Area  */
 // Load Textarea's function
 function loadTextAreas() {
-    storageArray = JSON.parse(localStorage.getItem('storedNotes'))
+    // Set storeage array equal to the notes OR to an empty array
+    storageArray = JSON.parse(localStorage.getItem('storedNotes')) || [];
+    // Set the user text to loop through the array
     for (var i = 0; i < userText.length; i++) {
-        userText.val() = storageArray[i];
+        userText[i].val(storageArray[i]);
     }
+    // Console log what we are storing or what is stored
+    console.log(userText);
+    console.log(storageArray);
 };
 
 // Save button
 $('.saveBtn').click(function () {
     // Save buttons For textarea's
+    storageArray = []; 
     for (var i = 0; i < userText.length; i++) {
         var text = userText[i].val();
+        console.log(text);
+        storageArray.push(text);
     };
-    storageArray.push(text);
     localStorage.setItem("storedNotes", JSON.stringify(storageArray));
 });
 
