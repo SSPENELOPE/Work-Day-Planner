@@ -36,7 +36,7 @@ function loadTextAreas() {
 $('.saveBtn').click(function(){
     // Save buttons For textarea's
     for (var i = 0; i < userText.length; i++ ) {
-             var text = userText.val();
+             var text = userText[i].val();
             };
          storageArray.push(text);
          localStorage.setItem("storedNotes", JSON.stringify(storageArray));
