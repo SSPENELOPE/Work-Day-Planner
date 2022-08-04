@@ -1,8 +1,6 @@
 /*           Variables          */
 var clearBtn = $('#clear');
 
-
-
 // Textarea variables
 var textArea9am = $('#textarea-9am');
 var textArea10am = $('#textarea-10am');
@@ -13,11 +11,11 @@ var textArea2pm = $('#textarea-2pm');
 var textArea3pm = $('#textarea-3pm');
 var textArea4pm = $('#textarea-4pm');
 var textArea5pm = $('#textarea-5pm');
-var userText = [textArea9am, etc] 
+var userText = [textArea9am, textArea10am, textArea11am, textArea12am, textArea1pm, textArea2pm, textArea3pm, textArea4pm, textArea5pm] 
 var storageArray = [];
 
-/*    Functions    */
 
+/*    Functions    */
 // Timer update function
 var updateTime = function () {
     var currentTime = moment().format('MMM Do, YYYY, HH:mm:ss');
@@ -163,7 +161,7 @@ function clearStorage() {
 
 // Save button
 $('.saveBtn').click(function(){
-
+    // Save buttons For textarea's
     for (var i = 0; i < userText.length; i++ ) {
              var text = userText[i].val();
              storageArray.push(text);

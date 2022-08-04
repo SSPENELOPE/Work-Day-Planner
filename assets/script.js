@@ -111,6 +111,7 @@ function timeCheck() {
         textArea1pm.addClass('future');
     };
 
+    
     // 2pm
     if (14 >= hour && hour < 15) {
         textArea2pm.addClass('present');
@@ -118,7 +119,7 @@ function timeCheck() {
         textArea2pm.addClass('past');
     };
     if (hour < 14) {
-        textArea1pm.addClass('future');
+        textArea2pm.addClass('future');
     };
 
     // 3pm
@@ -153,15 +154,15 @@ function timeCheck() {
 };
 
 // Refresh the page on the top of every hour for automatic bg change
-    var currentTime = new Date();
-    var futureTime = new Date();
-    futureTime.setTime(futureTime.getTime() + 3600000);
-    futureTime.setMinutes(0);
-    futureTime.setMinutes(0);
-    var refreshTime = (futureTime.getTime() - currentTime.getTime());
-    setTimeout(function() {
-        window.location.reload(true);
-    }, refreshTime);
+var currentTime = new Date();
+var futureTime = new Date();
+futureTime.setTime(futureTime.getTime() + 3600000);
+futureTime.setMinutes(0);
+futureTime.setMinutes(0);
+var refreshTime = (futureTime.getTime() - currentTime.getTime());
+setTimeout(function () {
+    window.location.reload(true);
+}, refreshTime);
 
 
 // Clear Storage Function
@@ -179,21 +180,9 @@ function clearStorage() {
 }
 
 
-var notesArray = [];
 
 
 /*     Click Events     */
-var myArray = [btns, etc] 
-
-
-function saveBtn() {
-    for (var i = 0; i < myArray.length; i++ ) {
-        var text = myArray[i].val();
-        notesArray.push(text);
-    }
-    localStorage.setItem("storedNotes", notesArray)
-
-}
 
 
 saveBtn9am.on('click', function () {
@@ -241,7 +230,7 @@ saveBtn5pm.on('click', function () {
     localStorage.setItem('textFive', JSON.stringify(textFive));
 });
 
-clearBtn.on('click', function(){
+clearBtn.on('click', function () {
     clearStorage();
 });
 
