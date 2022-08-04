@@ -22,8 +22,6 @@ var updateTime = function () {
     $('#currentDay').text(currentTime);
 };
 
-
-/*  Troublesome Area  */
 // Load Textarea's function
 function loadTextAreas() {
     // Set storeage array equal to the notes OR to an empty array
@@ -37,23 +35,14 @@ function loadTextAreas() {
     console.log(storageArray);
 };
 
-// Save button
-$('.saveBtn').click(function () {
-    // Save buttons For textarea's
-    storageArray = []; 
-    for (var i = 0; i < userText.length; i++) {
-        var text = userText[i].val();
-        console.log(text);
-        storageArray.push(text);
-    };
-    localStorage.setItem("storedNotes", JSON.stringify(storageArray));
-});
+
 
 
 
 
 // Function to update the bg-colors based on time of day
 function timeCheck() {
+    // Get the active hour
     var hour = new Date().getHours();
 
     // 9am
@@ -178,14 +167,26 @@ function clearStorage() {
 
 /*     Click Events     */
 
-
-
 // Clear Button
 clearBtn.on('click', function () {
     clearStorage();
 });
 
+// Save button
+$('.saveBtn').click(function () {
+    // Save buttons For textarea's
+    storageArray = []; 
+    for (var i = 0; i < userText.length; i++) {
+        var text = userText[i].val();
+        console.log(text);
+        storageArray.push(text);
+    };
+    localStorage.setItem("storedNotes", JSON.stringify(storageArray));
+});
 
+
+
+/*     Functions run imediatly on page load       */
 timeCheck();
 loadTextAreas();
 setInterval(updateTime, 1000);
