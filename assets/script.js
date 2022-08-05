@@ -39,11 +39,11 @@ function loadTextAreas() {
 
 
 // Function to update the bg-colors based on time of day
-$('.description').each(function() {
+$('.description').each(function () {
     var hour = new Date().getHours();
     //var hour = 14
     var time = $(this).data("time");
-    console.log(hour,time);
+    console.log(hour, time);
     if (time < hour) {
         $(this).addClass('past')
     } else if (time > hour) {
@@ -51,7 +51,7 @@ $('.description').each(function() {
     } else {
         $(this).addClass('present');
     }
-  }); 
+});
 
 
 // Refresh the page on the top of every hour for automatic bg change
@@ -69,21 +69,25 @@ setTimeout(function () {
 // Clear Storage Function
 function clearStorage() {
     localStorage.clear();
-    textArea9am.val('');
-    textArea10am.val('');
-    textArea11am.val('');
-    textArea12am.val('');
-    textArea1pm.val('');
-    textArea2pm.val('');
-    textArea3pm.val('');
-    textArea4pm.val('');
-    textArea5pm.val('');
+    $('description').each(function () {
+        $(this).val('');
+    })
 };
+/*   textArea9am.val('');
+  textArea10am.val('');
+  textArea11am.val('');
+  textArea12am.val('');
+  textArea1pm.val('');
+  textArea2pm.val('');
+  textArea3pm.val('');
+  textArea4pm.val('');
+  textArea5pm.val(''); */
+//};
 
 
 
 
-/*     Click Events     */
+/*           Click Events            */
 
 // Clear Button
 clearBtn.on('click', function () {
@@ -92,8 +96,9 @@ clearBtn.on('click', function () {
 
 // Save button
 $('.saveBtn').click(function () {
-    // Save buttons For textarea's
+    // Set the storage array to initalize empty
     storageArray = [];
+    // Create a for loop to get all user text values
     for (var i = 0; i < userText.length; i++) {
         var text = userText[i].val();
         console.log(text);
