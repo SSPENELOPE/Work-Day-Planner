@@ -69,20 +69,9 @@ setTimeout(function () {
 // Clear Storage Function
 function clearStorage() {
     localStorage.clear();
-    $('description').each(function () {
-        $(this).val('');
-    })
+    loadTextAreas();
 };
-/*   textArea9am.val('');
-  textArea10am.val('');
-  textArea11am.val('');
-  textArea12am.val('');
-  textArea1pm.val('');
-  textArea2pm.val('');
-  textArea3pm.val('');
-  textArea4pm.val('');
-  textArea5pm.val(''); */
-//};
+
 
 
 
