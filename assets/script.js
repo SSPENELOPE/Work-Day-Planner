@@ -37,6 +37,7 @@ function loadTextAreas() {
     console.log(storageArray);
 };
 
+
 // Function to update the bg-colors based on time of day
 $('.description').each(function() {
     var hour = new Date().getHours();
@@ -50,7 +51,8 @@ $('.description').each(function() {
     } else {
         $(this).addClass('present');
     }
-  });
+  }); 
+
 
 // Refresh the page on the top of every hour for automatic bg change
 var currentTime = new Date();
