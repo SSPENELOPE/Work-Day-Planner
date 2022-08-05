@@ -37,106 +37,20 @@ function loadTextAreas() {
     console.log(storageArray);
 };
 
-
-
-
-
-
 // Function to update the bg-colors based on time of day
-function timeCheck() {
-    // Get the active hour
+$('.description').each(function() {
     var hour = new Date().getHours();
-
-    // 9am
-    if (9 >= hour && hour < 10) {
-        textArea9am.addClass('present');
-    } else if (hour >= 10) {
-        textArea9am.addClass('past');
-    };
-    if (hour < 9) {
-        textArea9am.addClass('future')
-    };
-
-    // 10am
-    if (10 >= hour && hour < 11) {
-        textArea10am.addClass('present');
-    } else if (hour >= 11) {
-        textArea10am.addClass('past');
-    };
-    if (hour < 10) {
-        textArea10am.addClass('future');
-    };
-
-    // 11am
-    if (11 >= hour && hour < 12) {
-        textArea11am.addClass('present');
-    } else if (hour >= 12) {
-        textArea11am.addClass('past');
+    //var hour = 14
+    var time = $(this).data("time");
+    console.log(hour,time);
+    if (time < hour) {
+        $(this).addClass('past')
+    } else if (time > hour) {
+        $(this).addClass('future');
+    } else {
+        $(this).addClass('present');
     }
-    if (hour < 11) {
-        textArea11am.addClass('future');
-    };
-
-    // 12am
-    if (12 >= hour && hour < 13) {
-        textArea12am.addClass('present');
-    } else if (hour >= 13) {
-        textArea12am.addClass('past');
-    };
-    if (hour < 12) {
-        textArea12am.addClass('future');
-    };
-
-    // 1pm
-    if (13 >= hour && hour < 14) {
-        textArea1pm.addClass('present');
-    } else if (hour >= 14) {
-        textArea1pm.addClass('past');
-    };
-    if (hour < 13) {
-        textArea1pm.addClass('future');
-    };
-
-    // 2pm
-    if (14 >= hour && hour < 15) {
-        textArea2pm.addClass('present');
-    } else if (hour >= 15) {
-        textArea2pm.addClass('past');
-    };
-    if (hour < 14) {
-        textArea2pm.addClass('future');
-    };
-
-    // 3pm
-    if (15 >= hour && hour < 16) {
-        textArea3pm.addClass('present');
-    } else if (hour >= 16) {
-        textArea3pm.addClass('past');
-    };
-    if (hour < 15) {
-        textArea3pm.addClass('future');
-    };
-
-    // 4pm
-    if (16 >= hour && hour < 17) {
-        textArea4pm.addClass('present');
-    } else if (hour >= 17) {
-        textArea4pm.addClass('past');
-    };
-    if (hour < 16) {
-        textArea4pm.addClass('future');
-    };
-
-    // 5pm
-    if (17 >= hour && hour < 18) {
-        textArea5pm.addClass('present');
-    } else if (hour >= 18) {
-        textArea5pm.addClass('past');
-    };
-    if (hour < 17) {
-        textArea5pm.addClass('future');
-    };
-};
+  });
 
 // Refresh the page on the top of every hour for automatic bg change
 var currentTime = new Date();
@@ -189,7 +103,6 @@ $('.saveBtn').click(function () {
 
 
 /*     Functions run imediatly on page load       */
-timeCheck();
 loadTextAreas();
 setInterval(updateTime, 1000);
 
