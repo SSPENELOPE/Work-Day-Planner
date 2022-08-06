@@ -26,3 +26,6 @@
 
 - The awesome instructors at the UofM Coding Bootcamp. You all make coding fun and easy to learn.
 
+# Features
+- Withing this repository there is a folder in assets labeled "ScriptHardcode". This was the original way I made this code work which can be used to reference if your not sure how something works. What the hard code does is write everything out line by line so every function 
+is shown and variable is shown. Its just really long and ugly which is why im not using it as my main JS file for this project.

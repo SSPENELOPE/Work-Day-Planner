@@ -28,13 +28,20 @@ var updateTime = function () {
 function loadTextAreas() {
     // Set storeage array equal to the notes OR to an empty array
     storageArray = JSON.parse(localStorage.getItem('storedNotes')) || [];
+
     // Set the user text to loop through the array
-    for (var i = 0; i < userText.length; i++) {
+   /*  for (var i = 0; i < userText.length; i++) {
         userText[i].val(storageArray[i]);
-    }
-    // Console log what we are storing or what is stored
-    console.log(userText);
-    console.log(storageArray);
+    } */
+
+    // For each method to replace for loop
+    userText.forEach(userText => {
+        
+        userText.val(storageArray);
+
+        console.log(userText);
+        console.log(storageArray);
+    });
 };
 
 
@@ -45,7 +52,7 @@ $('.description').each(function () {
     var time = $(this).data("time");
     console.log(hour, time);
     if (time < hour) {
-        $(this).addClass('past')
+        $(this).addClass('past');
     } else if (time > hour) {
         $(this).addClass('future');
     } else {
