@@ -33,15 +33,6 @@ function loadTextAreas() {
     for (var i = 0; i < userText.length; i++) {
         userText[i].val(storageArray[i]);
     }
-
-    // For each method to replace for loop
- /*    userText.forEach(userText => {
-        
-        userText.val(storageArray);
-
-        console.log(userText);
-        console.log(storageArray);
-    }); */
 };
 
 
@@ -81,10 +72,7 @@ function clearStorage() {
 
 
 
-
-
 /*           Click Events            */
-
 // Clear Button
 clearBtn.on('click', function () {
     clearStorage();
