@@ -11,7 +11,7 @@
 # Usage
 - Add whatever you have planned for your day in the according time area and click the save button. If you refresh the page, no worries it is saved to the local storage. 
 
-- The time areas are color coated. "Green" is the current time of the day, "gray" is past times, and "red" is future times. The colors will change automaticly depending on what time of the day it is. The  current time of day is displayed and actively counting on the header of the page.
+- The time areas are color coated. "Green" is the current time of the day, "gray" is past times, and "red" is future times. The colors will change automaticly depending on what time of the day it is. The current time of day is displayed and actively counting on the header of the page.
 
 ![alt text](./assets/images/workdayplannerscreenshot.png)
 
@@ -27,5 +27,4 @@
 - The awesome instructors at the UofM Coding Bootcamp. You all make coding fun and easy to learn.
 
 # Features
-- Within this repository there is a folder in assets labeled "ScriptHardcode". This was the original way I made this code work which can be used to reference if your not sure how something works. What the hardcode does is write everything out line by line so every function 
-is shown and variable is shown. Its just really long and ugly which is why im not using it as my main JS file for this project.
+- Within this repository there is a folder in assets labeled "ScriptHardcode" which contains my original JS file. This was the original way I made this code work which can be used to reference if your not sure how something works. What the hardcode does is write everything out line by line so every function is shown and every variable is shown. Its just really long and ugly which is why im not using it as my main JS file for this project.
