@@ -39,7 +39,6 @@ function loadTextAreas() {
 // Function to update the bg-colors based on time of day
 $('.description').each(function () {
     var hour = new Date().getHours();
-    //var hour = 14
     var time = $(this).data("time");
     console.log(hour, time);
     if (time < hour) {
