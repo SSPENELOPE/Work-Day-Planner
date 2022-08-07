@@ -30,18 +30,18 @@ function loadTextAreas() {
     storageArray = JSON.parse(localStorage.getItem('storedNotes')) || [];
 
     // Set the user text to loop through the array
-   /*  for (var i = 0; i < userText.length; i++) {
+    for (var i = 0; i < userText.length; i++) {
         userText[i].val(storageArray[i]);
-    } */
+    }
 
     // For each method to replace for loop
-    userText.forEach(userText => {
+ /*    userText.forEach(userText => {
         
         userText.val(storageArray);
 
         console.log(userText);
         console.log(storageArray);
-    });
+    }); */
 };
 
 
